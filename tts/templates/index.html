@@ -1,35 +1,21 @@
 {% extends 'base.html' %}
 
         {% block body %}
+
         <div class="container">
+              <div class="col-md-12 text-end mt-3">
+        <a href="{% url 'logout' %}" class="btn btn-primary">Logout</a>
+      </div>
         <form id="speak" method="POST">
             {% csrf_token %}
             <label for="exampleFormControlInput1" class="form-label">Language</label>
             <select class="form-select form-select-lg mb-3" aria-label=".form-select-lg example" name="lang">
                 <option value="en">English</option>
-                <option value="hi">Hindi</option>
-                <option value="fr">French</option>
-                <option value="zh-TW">Mandarin (Taiwan)</option>
-                <option value="zh-CN">Mandarin (China Mainland)</option>
-                <option value="pt">Portuguese</option>
-                <option value="es">Spanish</option>
+
             </select>
 
             <label for="exampleFormControlInput1" class="form-label">Country</label>
             <select class="form-select form-select-lg mb-3" aria-label=".form-select-lg example" name='tdl'>
-                <option value="com.au">Australia</option>
-                <option value="co.uk">United Kingdom</option>
-                <option value="com">United States</option>
-                <option value="ca">Canada</option>
-                <option value="co.in">India</option>
-                <option value="ie">Ireland</option>
-                <option value="co.za">South Africa</option>
-                <option value="ca">Canada</option>
-                <option value="fr">France</option>
-                <option value="com.br">Brazil</option>
-                <option value="pt">Portugal</option>
-                <option value="com.mx">Mexico</option>
-                <option value="com.mx">Spain</option>
                 <option value="com">United States</option>
             </select>
 
@@ -38,7 +24,7 @@
             </div>
 
             <div class="col-auto">
-               <input type="submit" class="btn btn-success" value="Generate">
+               <input type="submit" class="btn btn-success" value="Speak">
             </div>
         </form>
         <div id="results"></div>

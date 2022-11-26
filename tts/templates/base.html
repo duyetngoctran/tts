@@ -16,6 +16,11 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300&display=swap" rel="stylesheet">
+        <style>
+      .col-centered {
+        text-align: center;
+      }
+    </style>
 </head>
 
 <body>
@@ -25,11 +30,14 @@
             hi
         </div> -->
         <div style="display: flex;align-items: center; justify-content: center;">
-            <a href="/"><img src="static/img/logo.png" alt="soundwave-logo" style="max-height: 100px;"></a>
+            <a href="/"><img src="{% static 'img/logo.png' %}" alt="soundwave-logo" style="max-height: 100px;"></a>
         </div>
         <div style="display: flex;align-items: center; justify-content: center;">
             <span class="logo_text1"> sound wave</span>
         </div>
+            <div class="row">
+
+    </div>
     </div>
 
     {% block body %}{% endblock body %}
