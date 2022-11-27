@@ -1,4 +1,4 @@
-asgiref==3.5.2
+asgiref==3.4.1
 azure-cognitiveservices-speech==1.24.2
 backports.zoneinfo==0.2.1
 dj-database-url==1.0.0
