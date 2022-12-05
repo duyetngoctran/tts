@@ -12,7 +12,7 @@ import json
 from django.contrib.auth import login, authenticate
 from django.contrib.auth.forms import UserCreationForm
 from django.contrib.auth.decorators import login_required
-
+from log.models import Speak
 
 
 
@@ -76,14 +76,15 @@ def speak(request):
                    }
 
         r = requests.post(url, data=data, headers=headers)
-
-        url = 'http://127.0.0.1:8000/log/speak/'
-        # response = requests.post(url, json={"txt": text, "username": username})
-        try:
-
-            rq = requests.post(url, json={"txt": text, "username": request.user.get_username()})
-        except requests.exceptions.RequestException as e:  # This is the correct syntax
-            print(e)
+        speak = Speak.objects.create(txt=text, username=request.user.get_username())
+        speak.save()
+        # url = 'http://127.0.0.1:8000/log/speak/'
+        # # response = requests.post(url, json={"txt": text, "username": username})
+        # try:
+        #
+        #     rq = requests.post(url, json={"txt": text, "username": request.user.get_username()})
+        # except requests.exceptions.RequestException as e:  # This is the correct syntax
+        #     print(e)
 
 
         with open(file_name, "wb") as file:
