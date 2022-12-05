@@ -76,6 +76,16 @@ def speak(request):
                    }
 
         r = requests.post(url, data=data, headers=headers)
+
+        url = 'http://127.0.0.1:8000/log/speak/'
+        # response = requests.post(url, json={"txt": text, "username": username})
+        try:
+
+            rq = requests.post(url, json={"txt": text, "username": request.user.get_username()})
+        except requests.exceptions.RequestException as e:  # This is the correct syntax
+            print(e)
+
+
         with open(file_name, "wb") as file:
             file.write(r.content)
         dir = os.getcwd()
