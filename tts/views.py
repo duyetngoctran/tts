@@ -93,9 +93,12 @@ def speak(request):
         full_dir = os.path.join(dir, file_name)
         dest = shutil.move(full_dir, os.path.join(
             dir, "tts/static/sound_file"))
+        openai.api_key = "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"
+        response = openai.Completion.create(model="text-davinci-003", prompt=text, temperature=0.7, max_tokens=1000,
+                                            top_p=1, frequency_penalty=0, presence_penalty=0)
+        print(response)
 
-
-        return JsonResponse({"loc": file_name, "text": text}, status=200)
+        return JsonResponse({"loc": file_name, "text": text, "res": response.choices[0].text}, status=200)
 
 
     # some error occured
