@@ -1,0 +1,14 @@
+{
+    "builds": [
+      {
+        "src": "text2speech/wsgi.py",
+        "use": "@vercel/python"
+      }
+    ],
+    "routes": [
+      {
+        "src": "/(.*)",
+        "dest": "text2speech/wsgi.py"
+      }
+    ]
+}

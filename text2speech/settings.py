@@ -87,10 +87,17 @@ WSGI_APPLICATION = "text2speech.wsgi.application"
 # Database
 # https://docs.djangoproject.com/en/4.1/ref/settings/#databases
 
+
+
 DATABASES = {
-    "default": {
-        "ENGINE": "django.db.backends.sqlite3",
-        "NAME": BASE_DIR / "db.sqlite3",
+    'default': {
+        'ENGINE': 'django.db.backends.postgresql',
+        'URL': 'postgresql://postgres:6IMWoDqW46uHZNPq1EcJ@containers-us-west-167.railway.app:7671/railway',
+        'NAME': 'railway',
+        'USER': 'postgres',
+        'PASSWORD': '6IMWoDqW46uHZNPq1EcJ',
+        'HOST': 'containers-us-west-167.railway.app',
+        'PORT': '7671',
     }
 }
 
